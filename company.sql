@@ -38,13 +38,7 @@ CREATE TABLE `appointment` (
   `pat_pic` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `appointment`
---
 
-INSERT INTO `appointment` (`idappoint`, `doctor`, `date1`, `time1`, `patient_login`, `patname`, `patphone`, `pataddress`, `pat_pic`) VALUES
-(1, 'Apoorv garg', '05/04/2017', '1:00 pm to 3:00 pm', 'Yash9585', 'Yash', '958547850', 'Ganganagar,Bhopal', '1493217785-dev.jpg'),
-(2, 'Apoorv garg', '29/04/2017', '1:00 pm to 3:00 pm', 'Vaib9003', 'Vaibhav', '9003718437', 'VIT', '');
 
 -- --------------------------------------------------------
 
@@ -66,13 +60,7 @@ CREATE TABLE `doctor` (
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`id`, `name`, `department`, `qualification`, `age`, `experience`, `profile_pic`) VALUES
-('Rake3215', 'Rakesh', 'Dermatology', 'M.B.B.S,M.S', 47, 15, ''),
-('Apoorv9997', 'Apoorv garg', 'Orpadecian', 'M.B.B.S,M.S', 47, 15, '1493383019-WIN_20151129_16_03_52_Pro.jpg'),
-('Vaibhav6523', 'Vaibhav Bhatt', 'Audiologist', 'MBBCh', 47, 5, ''),
-('Naman1001', 'Naman Tejwani', 'Anesthesiologist', 'MBChirB', 26, 3, ''),
-('Nishant2001', 'Nishant Mehta', 'Epidemiologist', 'MD and PhD', 66, 30, ''),
-('Sunny5006', 'Sunny Arora', 'Psychiatrist', 'MD and PhD', 99, 0, '');
+
 
 --
 -- Triggers `doctor`
@@ -100,17 +88,7 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`username`, `password`) VALUES
-('admin', 'admin1478'),
-('apoorv', '12345'),
-('Apoorv9997', 'Apoorv garg'),
-('Vaibhav6523', 'Vaibhav Bhatt'),
-('Vaibhav6523', 'Vaibhav Bhatt'),
-('Naman1001', 'Naman Tejwani'),
-('Nishant2001', 'Nishant Mehta'),
-('Sunny5006', 'Sunny Arora'),
-('Vaib9003', '123456'),
-('MOHI9790', '123456');
+
 
 -- --------------------------------------------------------
 
@@ -129,11 +107,7 @@ CREATE TABLE `nurse` (
 -- Dumping data for table `nurse`
 --
 
-INSERT INTO `nurse` (`id`, `name`, `department`, `age`) VALUES
-('Id', 'Shreya', 'Urology', 25),
-('Id', 'Katrina', 'Urology', 26),
-('Id', 'Swarnim', 'Orpadecian', 56),
-('Id', 'Kareena', 'Dermatology', 30);
+
 
 -- --------------------------------------------------------
 
@@ -156,9 +130,7 @@ CREATE TABLE `patient` (
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`fname`, `lname`, `phone`, `address`, `email`, `password`, `patient_pic`, `patient_login`) VALUES
-('Vaibhav', 'Bhatt', '9003718437', 'VIT', 'vaibhav.bhatt2015@vit.ac.in', '123456', '1493379884-IMG_20161215_224354.jpg', 'Vaib9003'),
-('MOHIT', 'SHARMA', '9790058741', 'VIT UNIVERSITY', 'msharma1188@gmail.com', '123456', NULL, 'MOHI9790');
+
 
 --
 -- Triggers `patient`
@@ -187,9 +159,7 @@ CREATE TABLE `prescription` (
 -- Dumping data for table `prescription`
 --
 
-INSERT INTO `prescription` (`doctor`, `patient`, `prescription`) VALUES
-('Apoorv garg', 'Yash9585', 'Betadine'),
-('Apoorv garg', 'Vaib9003', 'You need medicines');
+
 
 -- --------------------------------------------------------
 
@@ -210,8 +180,7 @@ CREATE TABLE `room` (
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`id`, `patient_login`, `room_type`, `check_in`, `days`, `compan`) VALUES
-(3, 'Vaib9003', 'Four Beded Non-AC Room', '29/04/2017', '1', '1');
+
 
 -- --------------------------------------------------------
 
@@ -232,8 +201,7 @@ CREATE TABLE `warden` (
 -- Dumping data for table `warden`
 --
 
-INSERT INTO `warden` (`password`, `name`, `phone`, `address`, `email`, `warden_login`) VALUES
-('123456', 'Vaibhav Bhatt', '9856321470', 'GV road,New Delhi', 'vaibhav.bhatt2015@vit.ac.in', 'Vaibhav6523');
+
 
 --
 -- Indexes for dumped tables
