@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<script src="date1.js"></script>
+<script src="date2.js"></script>
+		<title>Patients Form</title>
+
+<link rel="stylesheet" href="date.css">
+
+<script>
+		$( function() {
+			$( "#da1" ).datepicker();
+			} );
+	
+				function myFunction2(){
+					location.reload();
+				}
+				function regValidation(s,msg){
+					var pattern=/^[1-9]{1}[0-9]{4}$/;
+					if(s.value.match(pattern)){document.getElementById('p1').innerText="valid";return true;}
+					else{
+						document.getElementById('p1').innerText=msg;
+						s.focus();
+						return false;
+					}
+				}
+				function nameValidation(s,msg){
+					var pattern=/^[A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]+/;
+					if(s.value.match(pattern)){document.getElementById('p2').innerText="valid";return true;}
+					else{
+						document.getElementById('p2').innerText=msg;
+						s.focus();
+						return false;
+					}
+				}
+				function emailValidation(s,msg){
+					var pattern=/^[a-zA-Z]{1}[A-Za-z0-9-_\.]+[@]{1}[A-Za-z0-9\.]+$/;
+					if(s.value.match(pattern)){document.getElementById('p3').innerText="valid";return true;}
+					else{
+						document.getElementById('p3').innerText=msg;
+						s.focus();
+						return false;
+					}
+				}
+				function mobValidation(s,msg){
+					var pattern=/^[1-9]{1}[0-9]{9}/;
+					if(s.value.match(pattern) && s.value.length==10){document.getElementById('p4').innerText="valid";return true;}
+					else{
+						document.getElementById('p4').innerText=msg;
+						s.focus();
+						return false;
+					}
+				}
+				function cgpaValidation(s,msg){
+					a=0;
+					b=100;
+					cgpa=parseFloat(s.value);
+					if(s.value.length<=3 && cgpa>=a && cgpa<=b)
+						{document.getElementById('p5').innerText="valid";return true;}
+					
+					else{
+						document.getElementById('p5').innerText=msg;
+						s.focus();
+						return false;
+					}
+				}
+				function formValidation(){
+					var name=document.getElementById('name');
+					var mail=document.getElementById('mail');
+					var cgp=document.getElementById('cgpa');
+					var reg=document.getElementById('reg');
+					var mob=document.getElementById('mob');
+					var f1,f2,f3,f4,f5;
+					if(name.value.length==0 || mail.value.length==0 || cgp.value.length==0 || reg.value.length==0 || mob.value.length==0){
+						alert('All fields are mandatory');
+						return false;
+					}
+					if(regValidation(reg,"*Please enter a 5-digit id")){f1=1;} 
+					if(nameValidation(name,"*Please enter Name in correct format")){f2=1;}
+					if(emailValidation(mail,"*Not a valid mail ID")){f3=1;}
+					if(mobValidation(mob,"*Not a valid mobile no.")){f4=1;}
+					if(cgpaValidation(cgp,"*Invalid Age")){f5=1;}
+					if(f1==1 && f2==1 && f3==1 && f4==1 && f5==1)
+						{alert("All Entries are valid\n\nForm Submitted Sucessfully !!!!!!");
+						return true;}
+					else{return false;}
+				}
+		</script>
+</head>
+
+<body onload="document.abc.reset()" style="background-color:silver">
+
+		<div id="sitename">
+			<div class="width">
+				<h1><a href="#">Online Appointment System</a></h1>
+
+				<nav>
+					<ul>
+        					<li class="start selected">Home</li>
+        	    				<li class="">Log Out</li>
+        				</ul>
+				</nav>
+	
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div id='header' style="float: center-right;height:100px;margin:25px;">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+		&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img src="images.png"  />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
+		<section id="body" class="width clear">
+				
+	    <article>
+				<b><u><h1 style="color:#0B2F6B">Online Appointment Form</h1></b></u>
+				<fieldset>
+
+					<legend><h2>Patient Details</h2></legend>
+					<form action="#" method="get" onload="document.reset()" name='abc'>
+						<div id="form1" onload="document.abc.reset()">
+						<b><p id="head1"></p></b>
+						<label for="reg">Patient ID</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="text" name="reg" id="reg" placeholder="5-digit no"/>&nbsp;&nbsp;&nbsp;&nbsp;For New Patient Enter 11111.
+						&nbsp;&nbsp;&nbsp;<p id="p1"></p>
+						<br>
+						<label for="name">Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="text" name="name" id="name" placeholder="Abc Def"/>
+						&nbsp;&nbsp;&nbsp;<p id="p2"></p>
+						<br>
+						<label for="mail" stlyle="font-size:20px">E-mail Address</label>&nbsp;&nbsp;&nbsp;
+						<input type="text" name="mail" id="mail" placeholder="abc@example.com"/>
+						&nbsp;&nbsp;&nbsp;<p id="p3"></p>
+						<br>
+
+						<label for="mob">Mobile No.</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="text" name="mob" id="mob" placeholder="10 digits"/>
+						&nbsp;&nbsp;&nbsp;<p id="p4"></p>
+						<br>
+						
+						<label for="cgpa">Age</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="text" name="cgpa" id="cgpa" placeholder="max 99"/>
+						&nbsp;&nbsp;&nbsp;<p id="p5"></p><br>
+						<label for="Address">Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="text" id="add" placeholder="Residential"/>
+						<br>
+						<br><br>
+						<legend><h2>Doctor Details</h2></legend>
+						 <br>&nbsp;&nbsp;&nbsp;<br>
+						<label for="doctor">Doctor's Name</label>
+						<?php  
+						$connection = mysqli_connect("localhost", "root", "");
+						mysqli_select_db($connection,"company");
+
+						$sql = "SELECT name FROM doctor";
+						$result = mysqli_query($connection,$sql);
+
+						echo "<select name='username'>";
+						while ($row = mysqli_fetch_array($result)) {
+    					echo "<option value='" . $row['name'] ."'>" . $row['name'] ."</option>";
+						}
+						echo "</select>";
+						?>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						
+						 <br>&nbsp;&nbsp;&nbsp;<br>
+						<label for="da1">Date of Appointment</label>
+						<input type="text" id="da1" placeholder="dd/mm/yyyy"/><br><br>
+						
+						<label for="time">Time</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<select name="time"id='time'> &nbsp;&nbsp;&nbsp;
+						<option value="Value 1" selected="selected">10:00 am to 1:00 pm</option>
+						<option value="Value 2">1:00 pm to 3:00 pm</option>
+						<option value="Value 3">5:00 pm to 8:00 pm</option>
+						</select><br><br><br><br>
+						<button type="button" onclick="return formValidation()">Submit</button>
+						<button type="button" onclick="myFunction2()">Reset</button>
+						<br>
+						<p id="p9"></p>
+						</div>
+					</div>
+					</form>
+				</fieldset>
+				<p>&nbsp;</p>
+			</article>
+		
+
+	</section>
+	
+		<footer class="clear">
+			<div  class="width">
+				<p class="left">Site established by Vitians.</p>
+				<p class="right">Copyright of Vitians</p>
+			</div>
+		</footer>
+</body>
+</html>
